@@ -6,7 +6,9 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 ```sql
 <!-- Copy solution here -->
-SELECT * FROM matches WHERE season = 2017;
+SELECT *
+FROM matches
+WHERE season = 2017;
 
 ```
 
@@ -14,7 +16,10 @@ SELECT * FROM matches WHERE season = 2017;
 
 ```sql
 <!-- Copy solution here -->
-SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona';
+SELECT *
+FROM matches
+WHERE hometeam = 'Barcelona'
+OR awayteam = 'Barcelona';
 
 
 ```
@@ -23,7 +28,9 @@ SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona';
 
 ```sql
 <!-- Copy solution here -->
-SELECT name FROM divisions WHERE country = 'Scotland';
+SELECT name
+FROM divisions
+WHERE country = 'Scotland';
 
 ```
 
@@ -32,8 +39,13 @@ SELECT name FROM divisions WHERE country = 'Scotland';
 ```sql
 <!-- Copy solution here -->
 
-SELECT code FROM divisions WHERE name = 'Bundesliga';
-SELECT COUNT(hometeam = 'Freiburg') FROM matches WHERE division_code = 'D1';
+SELECT code
+FROM divisions
+WHERE name = 'Bundesliga';
+
+SELECT COUNT(hometeam = 'Freiburg')
+FROM matches
+WHERE division_code = 'D1';
 
 ```
 
@@ -41,7 +53,10 @@ SELECT COUNT(hometeam = 'Freiburg') FROM matches WHERE division_code = 'D1';
 
 ```sql
 <!-- Copy solution here -->
-
+SELECT DISTINCT hometeam
+FROM matches
+WHERE (LOWER(hometeam) LIKE LOWER('%City%'))
+OR (LOWER(hometeam) LIKE LOWER('%City%'));
 
 ```
 

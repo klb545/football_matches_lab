@@ -16,6 +16,10 @@
 -- Find the value of the `code` for the `Bundesliga` division.
 -- Use that code to find out how many matches Freiburg have played in that division.
 -- HINT: You will need to query both tables
-SELECT code FROM divisions WHERE name = 'Bundesliga';
-SELECT COUNT(hometeam = 'Freiburg') FROM matches WHERE division_code = 'D1';
+-- SELECT code FROM divisions WHERE name = 'Bundesliga';
+-- SELECT COUNT(hometeam = 'Freiburg') FROM matches WHERE division_code = 'D1';
+
+
+
+SELECT DISTINCT hometeam FROM matches WHERE (LOWER(hometeam) LIKE LOWER('%City%')) OR (LOWER(hometeam) LIKE LOWER('%City%'));
 
