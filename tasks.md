@@ -38,14 +38,16 @@ WHERE country = 'Scotland';
 
 ```sql
 <!-- Copy solution here -->
-
-SELECT code
+SELECT DISTINCT code
 FROM divisions
-WHERE name = 'Bundesliga';
+WHERE name LIKE '%Bundesliga%';
 
-SELECT COUNT(hometeam = 'Freiburg')
+SELECT COUNT(id)
 FROM matches
-WHERE division_code = 'D1';
+WHERE (division_code = 'D1' OR division_code = 'D2')
+AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
+
+
 
 ```
 
@@ -108,7 +110,14 @@ AND (ftr = 'D');
 
 ```sql
 <!-- Copy solution here -->
+SELECT DISTINCT code
+FROM divisions
+WHERE name = 'Premier League';
 
+SELECT *
+FROM matches
+WHERE division_code = 'E0'
+ORDER BY ((fthg + ftag), fthg) DESC;
 
 ```
 
