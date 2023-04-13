@@ -21,5 +21,24 @@
 
 
 
-SELECT DISTINCT hometeam FROM matches WHERE (LOWER(hometeam) LIKE LOWER('%City%')) OR (LOWER(hometeam) LIKE LOWER('%City%'));
+-- SELECT DISTINCT hometeam FROM matches WHERE (LOWER(hometeam) LIKE LOWER('%City%')) OR (LOWER(hometeam) LIKE LOWER('%City%'));
 
+
+
+-- How many different teams have played in matches recorded in a French division?
+
+-- SELECT DISTINCT code FROM divisions WHERE country = 'France';
+-- SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR division_code = 'F2';
+
+-- Have Huddersfield played Swansea in any of the recorded matches?
+-- SELECT COUNT(id) FROM matches WHERE (hometeam = 'Huddersfield' AND awayteam = 'Swansea') OR (hometeam = 'Swansea' AND awayteam = 'Huddersfield');
+
+
+-- How many draws were there in the `Eredivisie` between 2010 and 2015?
+SELECT DISTINCT code
+FROM divisions
+WHERE name = 'Eredivisie';
+
+SELECT COUNT(id)
+FROM matches
+WHERE division_code = 'N1' AND (season BETWEEN 2010 AND 2015) AND (ftr = 'D');

@@ -64,6 +64,14 @@ OR (LOWER(hometeam) LIKE LOWER('%City%'));
 
 ```sql
 <!-- Copy solution here -->
+SELECT DISTINCT code
+FROM divisions
+WHERE country = 'France';
+
+SELECT COUNT(DISTINCT hometeam)
+FROM matches
+WHERE division_code = 'F1'
+OR division_code = 'F2';
 
 
 ```
@@ -72,6 +80,10 @@ OR (LOWER(hometeam) LIKE LOWER('%City%'));
 
 ```sql
 <!-- Copy solution here -->
+SELECT COUNT(id)
+FROM matches
+WHERE (hometeam = 'Huddersfield' AND awayteam = 'Swansea')
+OR (hometeam = 'Swansea' AND awayteam = 'Huddersfield');
 
 
 ```
@@ -80,7 +92,15 @@ OR (LOWER(hometeam) LIKE LOWER('%City%'));
 
 ```sql
 <!-- Copy solution here -->
+SELECT DISTINCT code
+FROM divisions
+WHERE name = 'Eredivisie';
 
+SELECT COUNT(id)
+FROM matches
+WHERE division_code = 'N1'
+AND (season BETWEEN 2010 AND 2015)
+AND (ftr = 'D');
 
 ```
 
